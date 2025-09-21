@@ -1,0 +1,15 @@
+[project]
+name = "pg-tool"
+version = "0.1.0"
+description = "Command line helpers for convenient work with PostgreSQL"
+authors = [{ name = "Example", email = "example@example.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["psycopg>=3.1"]
+
+[project.scripts]
+pg-tool = "pg_tool.cli:main"
+
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
