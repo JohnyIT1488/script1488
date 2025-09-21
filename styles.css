@@ -1,0 +1,162 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #1f2251 0%, #3c3ca4 50%, #8b5cf6 100%);
+  --card-bg: rgba(17, 17, 44, 0.72);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --text-primary: #fdfdfd;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --accent: #f59e0b;
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.2);
+  --input-focus: rgba(245, 158, 11, 0.4);
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.landing {
+  position: relative;
+  overflow: hidden;
+}
+
+.landing__backdrop {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.25), transparent 55%),
+    radial-gradient(circle at 90% 10%, rgba(56, 189, 248, 0.2), transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(168, 85, 247, 0.25), transparent 60%);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.landing__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.landing__card {
+  width: min(480px, 100%);
+  backdrop-filter: blur(30px);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 60px rgba(15, 15, 35, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.landing__title {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 700;
+}
+
+.landing__subtitle {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form__label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form__input {
+  width: 100%;
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.form__input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--input-focus);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form__phone-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form__prefix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--input-border);
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 600;
+}
+
+.form__input--phone {
+  flex: 1;
+}
+
+.form__submit {
+  margin-top: 0.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(90deg, #f97316 0%, #facc15 100%);
+  color: #11112c;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form__submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(250, 204, 21, 0.35);
+}
+
+@media (max-width: 540px) {
+  .landing__card {
+    padding: 2rem;
+  }
+
+  .form__phone-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form__prefix {
+    justify-content: flex-start;
+  }
+}
