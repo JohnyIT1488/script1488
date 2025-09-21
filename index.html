@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Регистрация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <main class="hero">
+      <div class="hero__content">
+        <header class="hero__header">
+          <h1>Будущее начинается здесь</h1>
+          <p>
+            Присоединяйтесь к закрытому сообществу и узнавайте о новых
+            возможностях раньше всех.
+          </p>
+        </header>
+        <form class="hero__form" id="registration-form" novalidate>
+          <label class="input-group">
+            <span>ФИО</span>
+            <input
+              type="text"
+              name="fullName"
+              id="fullName"
+              placeholder="Иванов Иван Иванович"
+              required
+              autocomplete="name"
+            />
+          </label>
+          <label class="input-group">
+            <span>Номер телефона</span>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              placeholder="+7 (___) ___-__-__"
+              required
+              pattern="^\+7\s?\(?\d{3}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$"
+              autocomplete="tel"
+            />
+          </label>
+          <button type="submit" class="hero__submit">Регистрация</button>
+          <p class="hero__agreement">
+            Нажимая на кнопку, вы соглашаетесь с обработкой персональных данных.
+          </p>
+        </form>
+      </div>
+      <div class="hero__visual">
+        <div class="glass-card">
+          <h2>Экосистема</h2>
+          <p>Кураторство, комьюнити, поддержка 24/7</p>
+        </div>
+        <div class="glow"></div>
+      </div>
+    </main>
+    <script src="scripts/register.js"></script>
+  </body>
+</html>
