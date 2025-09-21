@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FutureSign — Регистрация</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page page--primary">
+    <header class="hero">
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">FutureSign</p>
+        <h1 class="hero__title">Регистрация на цифровую презентацию</h1>
+        <p class="hero__subtitle">
+          Мы собираем небольшое комьюнити людей, которые готовы менять мир.
+          Заполните форму ниже, и мы свяжемся с вами в ближайшее время.
+        </p>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <h2 class="card__title">Оставьте заявку</h2>
+        <form class="form" id="registration-form">
+          <label class="form__field">
+            <span class="form__label">ФИО</span>
+            <input
+              type="text"
+              name="fullName"
+              required
+              placeholder="Иванов Иван Иванович"
+              autocomplete="name"
+            />
+          </label>
+          <label class="form__field">
+            <span class="form__label">Номер телефона</span>
+            <div class="form__input-wrapper">
+              <span class="form__prefix">+7</span>
+              <input
+                type="tel"
+                name="phone"
+                pattern="\\d{10}"
+                required
+                placeholder="9000000000"
+                autocomplete="tel"
+              />
+            </div>
+            <small class="form__hint">Введите 10 цифр без пробелов</small>
+          </label>
+          <button type="submit" class="button">Зарегистрироваться</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2024 FutureSign. Все права защищены.</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
