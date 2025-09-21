@@ -1,0 +1,196 @@
+:root {
+  font-family: "JetBrains Mono", monospace;
+  background: #050404;
+  color: #24ff8c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.95) 0px,
+      rgba(0, 0, 0, 0.95) 2px,
+      rgba(10, 10, 10, 0.8) 3px,
+      rgba(20, 20, 20, 0.8) 4px
+    ),
+    radial-gradient(circle at 10% 20%, rgba(255, 0, 102, 0.15), transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(0, 255, 210, 0.12), transparent 35%),
+    #020202;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  color: inherit;
+}
+
+.glitch-wrapper {
+  width: min(960px, 100%);
+  border: 2px dashed rgba(36, 255, 140, 0.45);
+  padding: 32px;
+  background: rgba(0, 0, 0, 0.75);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.2);
+  transform: rotate(-1.5deg) skewX(-2deg);
+}
+
+.glitch-wrapper::before,
+.glitch-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -120px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.2) 0,
+    rgba(255, 0, 0, 0.2) 2px,
+    rgba(0, 255, 255, 0.2) 3px,
+    rgba(0, 255, 255, 0.2) 5px
+  );
+  mix-blend-mode: screen;
+  animation: scan 4s linear infinite;
+  opacity: 0.4;
+}
+
+.glitch-wrapper::after {
+  animation-duration: 6s;
+  opacity: 0.25;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(10%);
+  }
+}
+
+.glitch-title {
+  font-size: clamp(32px, 6vw, 64px);
+  margin: 0 0 8px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.glitch-title::before,
+.glitch-title::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: difference;
+}
+
+.glitch-title::before {
+  color: #ff005d;
+  transform: translate(-4px, -2px);
+}
+
+.glitch-title::after {
+  color: #0ff;
+  transform: translate(3px, 3px);
+}
+
+.glitch-subtitle {
+  margin: 0 0 24px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+}
+
+.entries {
+  display: grid;
+  gap: 16px;
+  position: relative;
+  isolation: isolate;
+  margin-bottom: 24px;
+}
+
+.entries.glitch {
+  filter: hue-rotate(-40deg) contrast(1.4);
+}
+
+.entry-empty {
+  margin: 0;
+  padding: 24px 20px;
+  background: rgba(255, 0, 93, 0.1);
+  border: 1px dashed rgba(255, 0, 93, 0.6);
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+}
+
+.entry-card {
+  padding: 16px 20px;
+  background: rgba(12, 12, 12, 0.85);
+  border-left: 4px solid #ff005d;
+  border-right: 4px solid rgba(0, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transform: rotate(-2deg);
+}
+
+.entry-card:nth-child(odd) {
+  transform: rotate(-1.8deg);
+}
+
+.entry-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.entry-card::before {
+  content: "////";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 12px;
+}
+
+.entry-name {
+  margin: 0;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.entry-phone {
+  margin: 4px 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+}
+
+.entry-time {
+  margin: 6px 0 0;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.glitch-footer {
+  margin: 0;
+  color: rgba(36, 255, 140, 0.6);
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .glitch-wrapper {
+    padding: 24px 16px;
+    transform: none;
+  }
+
+  .entries {
+    gap: 12px;
+  }
+}
